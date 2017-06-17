@@ -6,8 +6,20 @@
     <h2 class="mdl-card__title-text">{{ title }}</h2>
   </div>
   <div class="container">
-        <commitChart></commitChart>
-        <pieChart></pieChart>
+        <div>
+          <h5>Total da população por sexo</h5>
+          <pieChart></pieChart>
+        </div>
+        <div>
+          <h5>Rendimento médio</h5>
+
+          <commitChart></commitChart>
+        </div>
+        <div>
+          <h5>Demandas por categorias de negócio</h5>
+
+          <PieChartDemandas></PieChartDemandas>
+        </div>
       </div>
 
   <div class="mdl-card__supporting-text">
@@ -19,12 +31,15 @@
 <script>
 import CommitChart from '@/components/Chart'
 import PieChart from '@/components/PieChart'
+import PieChartDemandas from '@/components/PieChartDemandas'
+
 
 export default {
   name: 'card',
   components: {
     PieChart,
-    CommitChart
+    CommitChart,
+    PieChartDemandas
   },
   props: {
     title: {
@@ -65,6 +80,7 @@ export default {
 .container{
   display: flex;
   flex-direction: row;
-  width: 20%;
+  width: 25%;
+margin-left: 10%;
 }
 </style>
