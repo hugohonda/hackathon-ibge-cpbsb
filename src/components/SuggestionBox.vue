@@ -1,5 +1,5 @@
 <template>
-  <div class="input-box">
+  <div class="suggestion-box">
     <div class="input-container mdl-card mdl-shadow--4dp">
       <form action="#">
         <div class="input-text mdl-textfield mdl-js-textfield">
@@ -36,7 +36,7 @@ export default {
 
 <style scoped>
 
-    .input-box {
+    .suggestion-box {
       padding: 2em;
     }
 
@@ -63,5 +63,6 @@ export default {
     .mdl-button {
       margin: 30px;
     }
+    
 
 </style>

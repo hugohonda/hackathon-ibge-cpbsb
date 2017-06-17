@@ -26,39 +26,59 @@
           <div class="logo-font home-slogan">Abre Aqui</div>
           <div class="logo-font home-sub-slogan">Onde seu negócio dá certo!</div>
           <div class="input-box-container">
-            <input-box :text="'Digite sua localização'" :icon="'location_on'"></input-box>
+            <div class="input-box">
+              <div class="input-container mdl-card mdl-shadow--4dp">
+                <i class="input-icon material-icons">location_on</i>
+                <form action="#">
+                  <div class="input-text mdl-textfield mdl-js-textfield">
+                    <input class="mdl-textfield__input" v-model="choosenCity" placeholder="Digite aqui sua localização" type="text" id="location-input">
+                    <label class="mdl-textfield__label" for="location-input" ></label>
+                  </div>
+                </form>
+                <button @click="getCounty(3304557)" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored">
+                  Buscar
+                </button>
+              </div>
+            </div>
           </div>
         </div>
-        
+          <div class="best-city-section">
+            <card :title="'Nome Cidade'" :secondaryText="'bla bla bal bal blablablalba'"></card>
+          </div>
       </main>
-      <div>
-        <card :title="'Nome Cidade'" :secondaryText="'bla bla bal bal blablablalba'"></card>
-      </div>
     </div>
   </div>
 </template>
 
 <script>
-import InputBox from '@/components/InputBox'
 import Card from '@/components/Card'
+import SuggestionBox from '@/components/SuggestionBox'
 import PlaceInput from 'vue-google-maps'
 import axios from 'axios'
 
 export default {
   name: 'home',
   components: {
-    InputBox,
-    Card
+    Card,
+    SuggestionBox
   },
   data () {
     return {
       title: 'Abre Aqui',
-      vm: {
-        searchPlace: '',
-        location: {},
-        posts: [],
-        errors: []
-      }
+      choosenCity: null,
+      errors: []
+    }
+  },
+  methods: {
+    getCounty (countyId) {
+      axios.get('http://api.sidra.ibge.gov.br/values/t/1552/n6/' + countyId + '/c2/all')
+      .then(response => {
+        console.log(this.choosenCity)
+        this.posts = response.data
+      })
+      .catch(e => {
+        this.errors.push(e)
+      })
     }
   }
 }
@@ -112,7 +132,7 @@ export default {
 
 .home-main-section {
   position: relative;
-  height: 800px;
+  height: 450px;
   width: auto;
   background-color: #f3f3f3;
   background: url('../assets/ipanema-up.png') center 30% no-repeat;
@@ -130,5 +150,27 @@ export default {
   margin-top: 2em;
 }
 
+    .input-box {
+      padding: 2em;
+    }
+
+    .input-container.mdl-card {
+      display: flex;
+      flex-direction: row;
+      width: 620px;
+      min-height: 64px;
+      height: 64px;
+      align-items: center;
+      justify-content: space-around;
+    }
+
+    .input-icon {
+      padding-right: 1em;
+      padding-left: 1em;
+    }
+
+    .input-text {
+      padding-right: 2em;
+    }
 
 </style>
