@@ -43,7 +43,7 @@
           </div>
         </div>
           <div class="best-city-section">
-            <card :title='{{choosenCity}}' :secondaryText="'bla bla bal bal blablablalba'"></card>
+            <card :title="'Rio de janeiro'" :secondaryText="'bla bla bal bal blablablalba'"></card>
           </div>
       </main>
     </div>
