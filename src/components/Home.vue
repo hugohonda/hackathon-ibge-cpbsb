@@ -66,30 +66,26 @@ export default {
     return {
       title: 'Abre Aqui',
       choosenCity: null,
+      countyId: null,
+      choosenCityData: null,
       errors: []
     }
   },
   methods: {
     getCounty () {
-      var countyId = 5300108
       if(this.choosenCity === 'Rio de Janeiro')
-        countyId = 3304557
+        this.countyId = 3304557
       if(this.choosenCity === 'São Paulo')
-        countyId = 3550308
+        this.countyId = 3550308
       if(this.choosenCity === 'Belo Horizonte')
-        countyId = 3106200
+        this.countyId = 3106200
       if(this.choosenCity === 'Brasília')
-        countyId = 5300108
-
-      axios.get('http://api.sidra.ibge.gov.br/values/t/1552/n6/' + countyId + '/c2/all')
+        this.countyId = 5300108
+      axios.get('http://api.sidra.ibge.gov.br/values/t/1552/n6/' + this.countyId + '/c2/all')
       .then(response => {
-        var data = response.data
-        console.log(data)
-        this.posts = data
+        this.choosenCityData = response.data
       })
-      .catch(e => {
-        this.errors.push(e)
-      })
+      console.log(choosenCityData)
     }
   }
 }
