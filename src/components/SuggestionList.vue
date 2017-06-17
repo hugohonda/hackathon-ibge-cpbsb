@@ -53,7 +53,7 @@ export default {
 <style scoped>
 
   .suggestion-list {
-    width: 650px;
+    width: 80%;
     margin: 20px auto;
   }
 

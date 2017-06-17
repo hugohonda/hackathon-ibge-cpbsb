@@ -22,9 +22,7 @@
         </div>
       </div>
 
-  <div class="mdl-card__supporting-text">
-    {{ secondaryText }}
-  </div>
+  <suggestion-list></suggestion-list>
 </div>
 </template>
 
@@ -32,6 +30,7 @@
 import CommitChart from '@/components/Chart'
 import PieChart from '@/components/PieChart'
 import PieChartDemandas from '@/components/PieChartDemandas'
+import SuggestionList from '@/components/SuggestionList'
 
 
 export default {
@@ -39,7 +38,8 @@ export default {
   components: {
     PieChart,
     CommitChart,
-    PieChartDemandas
+    PieChartDemandas,
+    SuggestionList
   },
   props: {
     title: {
