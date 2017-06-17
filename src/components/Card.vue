@@ -1,9 +1,16 @@
 <template>
 <!-- Wide card with share menu button -->
 <div class="demo-card-wide mdl-card mdl-shadow--2dp">
+
   <div class="mdl-card__title">
     <h2 class="mdl-card__title-text">{{ title }}</h2>
   </div>
+  <div class="container">
+        <commitChart></commitChart>
+
+        <pieChart></pieChart>
+      </div>
+
   <div class="mdl-card__supporting-text">
     {{ secondaryText }}
   </div>
@@ -11,13 +18,23 @@
 </template>
 
 <script>
+import CommitChart from '@/components/Chart'
+import PieChart from '@/components/PieChart'
+
 export default {
   name: 'card',
+  components: {
+    PieChart,
+    CommitChart
+  },
   props: {
     title: {
       type: String
     },
     secondaryText: {
+      type: String
+    },
+    buttonText: {
       type: String
     }
   },
@@ -25,21 +42,8 @@ export default {
     return {
       msg: 'card'
     }
-  },
-  methods: {
-    getCounty (countyId) {
-      axios.get('http://api.sidra.ibge.gov.br/values/t/1552/n6/' + countyId + '/c2/all')
-      .then(response => {
-        console.log(response.data)
-        this.posts = response.data
-      })
-      .catch(e => {
-        this.errors.push(e)
-      })
-    }
   }
 }
-
 </script>
 
 <style scoped>
@@ -58,5 +62,8 @@ export default {
 }
 .mdl-card__title-text{
   color: #000;
+}
+.container{
+  width: 20%;
 }
 </style>

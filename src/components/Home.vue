@@ -50,17 +50,26 @@
   </div>
 </template>
 
-<script>
-import Card from '@/components/Card'
+
+
+<script>  
 import SuggestionBox from '@/components/SuggestionBox'
+
+import InputBox from '@/components/InputBox'
+import Card from '@/components/Card'
+import CommitChart from '@/components/Chart'
 import PlaceInput from 'vue-google-maps'
 import axios from 'axios'
+
 
 export default {
   name: 'home',
   components: {
-    Card,
-    SuggestionBox
+
+    SuggestionBox,
+    CommitChart,
+    InputBox,
+    Card
   },
   data () {
     return {
@@ -144,6 +153,7 @@ export default {
   background-color: #f3f3f3;
   background: url('../assets/ipanema-up.png') center 30% no-repeat;
   background-size: cover;
+  
 }
 
 .input-box-container {
