@@ -10,6 +10,7 @@ namespace AbreAqui.Controllers
     {
         public ActionResult Index()
         {
+            YieldController.teste("3304557");
             return View();
         }
 
