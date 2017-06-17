@@ -35,7 +35,7 @@
                     <label class="mdl-textfield__label" for="location-input" ></label>
                   </div>
                 </form>
-                <button @click="getCounty(3304557)" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored">
+                <button @click="getCounty()" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored">
                   Buscar
                 </button>
               </div>
@@ -70,11 +70,22 @@ export default {
     }
   },
   methods: {
-    getCounty (countyId) {
+    getCounty () {
+      var countyId = 5300108
+      if(this.choosenCity === 'Rio de Janeiro')
+        countyId = 3304557
+      if(this.choosenCity === 'São Paulo')
+        countyId = 3550308
+      if(this.choosenCity === 'Belo Horizonte')
+        countyId = 3106200
+      if(this.choosenCity === 'Brasília')
+        countyId = 5300108
+
       axios.get('http://api.sidra.ibge.gov.br/values/t/1552/n6/' + countyId + '/c2/all')
       .then(response => {
-        console.log(this.choosenCity)
-        this.posts = response.data
+        var data = response.data
+        console.log(data)
+        this.posts = data
       })
       .catch(e => {
         this.errors.push(e)
