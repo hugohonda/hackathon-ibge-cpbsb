@@ -29,20 +29,26 @@
             <input-box :text="'Digite sua localização'" :icon="'location_on'"></input-box>
           </div>
         </div>
+        
       </main>
+      <div>
+        <card :title="'Nome Cidade'" :secondaryText="'bla bla bal bal blablablalba'"></card>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
 import InputBox from '@/components/InputBox'
+import Card from '@/components/Card'
 import PlaceInput from 'vue-google-maps'
 import axios from 'axios'
 
 export default {
   name: 'home',
   components: {
-    InputBox
+    InputBox,
+    Card
   },
   data () {
     return {
