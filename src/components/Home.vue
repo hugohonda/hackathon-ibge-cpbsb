@@ -43,7 +43,7 @@
           </div>
         </div>
           <div class="best-city-section">
-            <card :title="'Nome Cidade'" :secondaryText="'bla bla bal bal blablablalba'"></card>
+            <card :title='{{choosenCity}}' :secondaryText="'bla bla bal bal blablablalba'"></card>
           </div>
       </main>
     </div>
@@ -54,7 +54,6 @@
 
 <script>  
 import SuggestionBox from '@/components/SuggestionBox'
-
 import InputBox from '@/components/InputBox'
 import Card from '@/components/Card'
 import CommitChart from '@/components/Chart'

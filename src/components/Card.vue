@@ -7,7 +7,6 @@
   </div>
   <div class="container">
         <commitChart></commitChart>
-
         <pieChart></pieChart>
       </div>
 
@@ -64,6 +63,8 @@ export default {
   color: #000;
 }
 .container{
+  display: flex;
+  flex-direction: row;
   width: 20%;
 }
 </style>
